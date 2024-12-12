@@ -1,0 +1,750 @@
+:root {
+    --light-bg: #F3F3F3; /* Světlé pozadí */
+    --dark-bg: #333333;  /* Tmavé pozadí pro tlačítka */
+    --button: #0D0D0D;        /* Tmavý text */
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+body,button{
+    font-family: "Montserrat", sans-serif!important;
+}
+button {
+    transition:0.2s ease;
+}
+button:hover {
+    transform: scale(1.02);
+
+}
+[class*="col-"] {
+    width: calc((100% / 12) * var(--col-num));
+}
+
+@media (min-width: 1px){
+    .col-1 { --col-num: 1; }
+    .col-2 { --col-num: 2; }
+    .col-3 { --col-num: 3; }
+    .col-4 { --col-num: 4; }
+    .col-5 { --col-num: 5; }
+    .col-6 { --col-num: 6; }
+    .col-7 { --col-num: 7; }
+    .col-8 { --col-num: 8; }
+    .col-9 { --col-num: 9; }
+    .col-10 { --col-num: 10; }
+    .col-11 { --col-num: 11; }
+    .col-12 { --col-num: 12; }
+} 
+@media (min-width: 768px){
+    .col-md-1 { --col-num: 1; }
+    .col-md-2 { --col-num: 2; }
+    .col-md-3 { --col-num: 3; }
+    .col-md-4 { --col-num: 4; }
+    .col-md-5 { --col-num: 5; }
+    .col-md-6 { --col-num: 6; }
+    .col-md-7 { --col-num: 7; }
+    .col-md-8 { --col-num: 8; }
+    .col-md-9 { --col-num: 9; }
+    .col-md-10 { --col-num: 10; }
+    .col-md-11 { --col-num: 11; }
+    .col-md-12 { --col-num: 12; }
+} 
+
+@media (min-width: 1200px){
+    .col-lg-1 { --col-num: 1; }
+    .col-lg-2 { --col-num: 2; }
+    .col-lg-3 { --col-num: 3; }
+    .col-lg-4 { --col-num: 4; }
+    .col-lg-5 { --col-num: 5; }
+    .col-lg-6 { --col-num: 6; }
+    .col-lg-7 { --col-num: 7; }
+    .col-lg-8 { --col-num: 8; }
+    .col-lg-9 { --col-num: 9; }
+    .col-lg-10 { --col-num: 10; }
+    .col-lg-11 { --col-num: 11; }
+    .col-lg-12 { --col-num: 12; }
+} 
+
+.header-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 90px;
+    z-index: 100;
+    margin: 0 150px;
+}
+.header-bar .logo a {
+    align-items: center;
+    display: flex
+}
+.header-bar .logo img{
+    width: 100%;
+    max-width: 250px;
+}
+
+.header-bar .logo, .header-bar .navigation, .header-bar .reserve-button{
+    align-items: center;
+    display: flex;
+}
+.header-bar .navigation {
+    display: flex;
+    justify-content: center;
+}
+.header-bar .navigation a {
+    text-decoration:none;
+    color:black;
+    
+    padding:15px 25px;
+}
+.header-bar .reserve-button{
+    display: flex;
+    justify-content: end;
+
+}
+.header-bar .reserve-button button {
+    color:white;
+    padding:12px 30px;
+    font-size:20px;
+    background:var(--button);
+    border-radius:12px;
+    border: none;
+    font-weight:bold;
+    cursor: pointer;
+}
+header .hamburger{
+    display: none;
+}
+.header-image {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 90px); /* Výška záhlaví */
+    overflow: hidden; /* Skryje přesahující obsah */
+    color: white; /* Barva textu */
+}
+
+.header-image video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Video pokryje celý prostor */
+    z-index: 0; /* Video zůstane na pozadí */
+    opacity: 0.4; /* Sníží průhlednost pro zašedlý efekt */
+}
+
+.header-image .overflow {
+    position: relative;
+    z-index: 1; /* Text bude nad videem */
+    background: rgba(80, 80, 80, 0.95); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 90px);
+    text-align: center;
+    padding: 2rem;
+}
+header .header-image .overflow h1 {
+    font-size: 72px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    position: relative;
+    z-index: 3;
+}
+header .header-image .overflow p {
+    max-width: 700px;
+    text-align: center;
+    margin-top: 5px;
+    position: relative;
+    z-index: 3;
+}
+header .header-image .overflow button {
+    color: white;
+    padding: 15px 40px;
+    font-size: 20px;
+    border: none;
+    margin-top: 15px;
+    background: var(--button);
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+main .foto-full-width{
+    display: flex;
+    overflow: hidden;
+}
+main .foto-full-width img{
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover; 
+    transition: transform 0.2s ease-in-out;
+    overflow: hidden;
+    
+    object-fit: cover;
+}
+.foto-full-width img:hover {
+    transform: scale(1.015);
+    transform-origin: center;
+}
+main .text-container{
+    background:var(--dark-bg);
+    color: white;
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+main .text-container article h2, main .team-container h2{
+    font-size: 36px;
+    margin: 0;
+    font-weight: 400;
+    text-align: center;
+}
+main .text-container article p {
+    max-width: 700px;
+}
+
+main .team-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 50px 150px;
+}
+main .team-container:first-child article img{
+    width: 140px;
+}
+main .team-container:last-child article img{
+    box-shadow: 1px 1px 8px var(--dark-bg);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 280px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+main .team-container article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+main .team-container h2{
+    display: flex;
+    justify-content: center;
+    padding: 0px 20px 50px;
+}
+
+main .team-container h3 {
+    font-weight: 400;
+    font-size: 32px;
+    margin: 15px 5px 5px 5px;
+}
+main .team-container p {
+    font-weight: 400;
+    text-align: center;
+    padding: 0 50px;
+}
+
+main .team-container .col-12.team-button {
+    display: flex;
+    justify-content: center;   
+}
+main .team-container .col-12.team-button button {
+    color: white;
+    padding: 15px 40px;
+    font-size: 20px;
+    border: none;
+    margin-top: 50px;
+    background: var(--button);
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer{
+    padding: 20px 150px 0;
+    margin-bottom: 0;
+    color: white;
+    background: var(--dark-bg);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+footer .textfooter img{
+    width: 40px;
+    height: 40px;
+}
+footer .textfooter p{
+    margin-top: 3px;
+    max-width: 400px;
+}
+footer h3{
+    font-weight: 400;
+    font-size: 28px;
+    margin: 0;
+}
+
+footer .email, footer .contact {
+    align-items: center;
+    display: flex;
+    padding-top: 15px;
+}
+footer .email img, footer .contact img{
+    width:25px;
+    margin-right:8px;
+}
+footer .email a, footer .contact a{
+    text-decoration:none;
+    color:white;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+footer .lokace .row {
+    display: flex;
+    flex-direction: row;
+    padding-top:15px;
+}
+footer .lokace .row img{
+    width:50px;
+    height:60px;
+    margin-right:8px;
+}
+
+footer .lokace .row .footeradresa {
+    justify-content:center;
+    display:flex;
+    flex-direction:column;
+}
+footer .lokace .row .footeradresa p{
+    margin:3px;
+}
+footer article.copyright {
+    padding: 50px 0px 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* galerie */
+main .h1-sluzby-gallery-tym {
+    background:var(--dark-bg);
+}
+main .h1-sluzby-gallery-tym h1{
+    color: white;
+    font-weight: 400;
+    font-size: 38px;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0px;
+}
+main .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; 
+    margin: 40px 150px;
+}
+
+main .gallery img {
+    width: 100%; 
+    height: auto;
+    aspect-ratio: 1/1;
+    box-shadow: 2px 2px 8px rgb(0 0 0 / 25%);
+    object-fit: cover; 
+    border-radius: 3px;
+}
+main .otazkysection{
+    margin: 20px 150px 50px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .otazkysection h2{
+    font-size: 36px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+main .otazkysection p{
+    max-width: 680px;
+    text-align: center;
+}
+main .otazkysection button{
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    margin-top: 20px;
+    background: var(--button);
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* sluzby*/
+main .strih-right-img, main .strih-left-img{
+    padding: 20px 150px;
+    display: flex;
+    flex-direction: row;
+}
+main .strih-left-img article, main .strih-right-img article{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+}
+main .strih-right-img{
+    background: var(--light-bg);
+
+}
+main .strih-right-img .right-img {
+    align-items: end;
+}
+main .strih-right-img img, main .strih-left-img img{
+    max-width: 480px;
+}
+main .strih-right-img h2, main .strih-left-img h2 {
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0;
+}
+main .strih-right-img .right-cena-button, main .strih-left-img .right-cena-button {
+    display:flex;
+    flex-direction:column;
+    align-items: end;
+}
+main .strih-right-img .right-cena-button p, main .strih-left-img .right-cena-button p{
+    font-size:30px;
+    margin: 10px 0;
+    font-weight:500;
+}
+main .strih-right-img .right-cena-button{
+    display:flex;
+    flex-direction:column;
+    align-items: start;
+}
+main .strih-left-img .right-cena-button {
+    display:flex;
+    flex-direction:column;
+    align-items: end;
+}
+main .strih-right-img .right-cena-button button, main .strih-left-img .right-cena-button button{
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    background: var(--button);
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* tym */
+main .tym {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    padding: 0px 100px 50px 100px;
+    
+}
+main .tym article {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+main .tym .tymitem{
+    text-align: center;
+    border-radius: 15px;
+    max-width:350px;
+    height: 100%; /* Nastaví stejnou výšku pro všechny karty */
+    background: white;
+    box-shadow: 0px 0px 8px rgb(99, 99, 99);   
+}
+main .tym article img{
+    max-width:100%;
+    border-radius: 15px 15px 0 0;
+}
+main .tym article p, main .tym article h2, main .tym article h3 {
+    padding:0 20px 20px 20px;
+}
+main .tym article p{
+    margin-top:0;
+}
+main .tym article h2{
+    font-weight:400;
+    font-size:36px;
+    margin:0;
+    padding: 10px 0 5px 0;
+}
+main .tym article h3 {
+    font-size:16px;
+    margin:0;
+}
+
+
+
+/**********RESPONZIVITA************/
+@media(width < 1500px){
+    header .header-image .overflow {
+        padding: 0px 150px;
+    }
+    header .header-image .overflow h1{
+        font-size: 58px;
+    }
+}
+@media (width < 1400px){
+    main .tym{
+        padding: 0px 80px 50px 80px;
+    }
+    main .tym .tymitem{
+        max-width:315px;
+    }
+}
+@media(width < 1260px){
+    .header-bar .navigation a{
+        padding: 15px 20px;
+    }
+    footer .lokace .row, footer .lokace h3{
+        padding-left: 15px;
+    }
+}
+@media(width < 1200px){
+    .header-bar, main .team-container, main .text-container, main .strih-right-img, main .strih-left-img, main .otazkysection, main .tym{
+        padding-left: 60px;
+        padding-right: 60px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    header .header-image .overflow h1{
+        font-size: 56px;
+    }
+    header .header-image .overflow {
+        padding: 0px 56px;
+    }
+    .header-bar .reserve-button button {
+        padding: 12px 25px;
+    }
+    main .team-container h3{
+        font-size: 28px;
+    }
+    main .team-container p{
+        padding: 0 30px;
+    }
+    main .team-container .col-12.team-button button{
+        margin-top: 20px;
+    }
+    footer{
+        padding: 20px 100px 0px 100px;
+    }
+    footer .lokace .row, footer .lokace h3{
+        padding-left: 0;
+    }
+
+    /*gallery*/
+    main .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 40px 60px; 
+    }
+    /*tym*/
+    main .tym .tymitem{
+        max-width:350px;
+    }
+}
+@media(width < 992px){
+    .header-bar, main .team-container, main .text-container, main .strih-right-img, main .strih-left-img, main .otazkysection, main .tym{
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .header-bar .logo img{
+        width: 180px;
+    }
+    .header-bar .navigation a{
+        padding: 15px 14px;
+    }
+    .header-bar .reserve-button button {
+        padding: 12px 25px;
+        font-size: 18px;
+    }
+    header .header-image .overflow {
+        padding: 0px 20px;
+    }
+    header .header-image .overflow h1{
+        font-size: 46px;
+    }
+    main .h1-sluzby-gallery-tym h1{
+        font-size: 36px;
+    }
+    main .text-container article h2, main .team-container h2, main .strih-right-img h2, main .strih-left-img h2{
+        font-size: 34px;
+    }
+    main .team-container h3{
+        font-size: 24px;
+        margin: 10px 0 0 0;
+    }
+    main .foto-full-width{
+        display: none;
+    }
+    footer{
+        padding: 20px 60px 0px 60px;
+    }
+    footer h3{
+        font-size: 26px;
+    }
+}
+
+@media(width < 768px){
+
+    header .header-image .overflow {
+        height: calc(85vh - 90px);
+        min-height: 400px;
+    }
+    header .header-image .overflow h1{
+        font-size: 38px;
+    }
+    main .h1-sluzby-gallery-tym h1{
+        font-size: 34px;
+    }
+    main .team-container article{
+        padding-bottom: 20px;
+    }
+    main .team-container .col-12.team-button button{
+        margin-top: 0px;
+        font-size: 16px;
+        padding: 15px 30px;
+    }
+    main .text-container article h2, main .team-container h2, main .strih-right-img h2, main .strih-left-img h2, main .otazkysection h2{
+        font-size: 32px;
+    }
+    footer .lokace h3{
+        margin-top: 20px;
+    }
+    /*hamburger a menu*/
+    header .hamburger{
+        position: absolute;
+        display: flex;
+        right: 20px;
+    }
+    header .hamburger img {
+        width: 36px;
+    }
+
+    header .header-bar .navigation {
+        position: absolute;
+        top: 90px;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        background: white;
+        left: 0;
+        align-items: baseline;
+        transform: translateX(100%);
+        transition: transform 0.5s ease;
+        z-index: 10;
+    }
+    header .header-bar .navigation.open, .header-bar .reserve-button.open {
+        display: flex;
+        transform: translateX(0);
+    }
+    header .header-bar .navigation a:first-child{
+        border-top:1px solid black;
+    }
+    header .header-bar .navigation a {
+        padding:20px;
+        display:flex;
+        width: 100vw;
+        border-bottom:1px solid black;
+    }
+    header .header-bar .reserve-button{
+        position: absolute;
+        top: 330px;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        background: #0d0d0d;
+        left: 0;
+        padding:10px 0;
+        transform: translateX(100%);
+        transition: transform 0.5s ease;
+        z-index: 10;
+    }
+    header .header-overlay {
+        position: fixed;
+        top: 90px;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        transition: opacity 0.5s ease;
+        z-index: 5;
+    }
+    
+    header .header-overlay.open {
+        display: flex;
+    }
+
+
+    /*sluzby*/
+    main .strih-right-img, main .strih-left-img{
+        flex-wrap: wrap;
+    }
+    main .strih-left-img article, main .strih-right-img article {
+        padding: 10px 0;
+    }
+    main .strih-right-img img, main .strih-left-img img {
+        max-width: 100%;
+    }
+    main .strih-right-img {
+        flex-direction: column-reverse;
+    }
+    /*gallery*/
+    main .gallery {
+        grid-template-columns: 1fr; /* 1 column for screens < 768px */
+        margin: 20px; /* Adjust margin for better fit on mobile */
+    }
+}
+@media(width < 576px){
+    header .header-image .overflow h1{
+        font-size: 34px;
+    }
+    main .h1-sluzby-gallery-tym h1{
+        font-size: 28px;
+    }
+    main .text-container article h2, main .team-container h2, main .strih-right-img h2, main .strih-left-img h2{
+        font-size: 26px;
+    }
+    main .otazkysection h2{
+        font-size: 24px;
+    }
+    main .otazkysection button{
+        margin-top: 0;
+    }
+    main .strih-right-img .right-cena-button button, main .strih-left-img .right-cena-button button, main .otazkysection button{
+        font-size: 16px;
+    }
+    main .strih-right-img .right-cena-button p, main .strih-left-img .right-cena-button p{
+        font-size: 24px;
+    }
+    footer{
+        padding: 20px 30px 0px 30px;
+    }
+}
